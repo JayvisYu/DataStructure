@@ -42,11 +42,15 @@ bool Empty(DLinkList L)
 //指定节点的后插操作
 bool InsertNextElem(DNode *p, DNode *s)
 {
+    if (p == NULL || s == NULL)
+        return false;
     //注意顺序不可交换
     s->next = p->next;
-    p->next->prior = s;
+    if (p->next != NULL)
+        p->next->prior = s;
     s->prior = p;
     p->next = s;
+    return true;
 }
 
 //删除P节点的后继节点
