@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**定义模块**/
-
 typedef struct LNode
 {
     int data;
@@ -20,11 +18,8 @@ bool DeleteNode(LNode *p);                   //删除指定节点
 LNode *GetElem(LinkList L, int i);           // 按位查找
 LNode *LocateElem(LinkList L, int i);        // 按值查找
 int Length(LinkList L);                      // 求表长度
-/**定义模块**/
 
-/**实现模块**/
-
-//初试化(带有头节点)
+//初始化(带有头节点)
 bool InitList(LinkList &L)
 {
     L = (LNode *)malloc(sizeof(LNode)); //分配一个头节点
@@ -37,10 +32,6 @@ bool InitList(LinkList &L)
 //判空
 bool Empty(LinkList L)
 {
-    //    if(L->next==NULL)
-    //        return true;
-    //    else
-    //        return false;
     return (L->next == NULL);
 }
 
@@ -205,52 +196,4 @@ LinkList List_TailInsert(LinkList &L)
     }
     r->next = NULL;
     return L;
-}
-
-/**实现模块**/
-
-/**测试模块**/
-//Test
-void TestPrint(bool test, char about[])
-{
-    if (test)
-        printf("%s成功\n", about);
-    else
-        printf("%s失败\n", about);
-}
-
-void PrintList(LinkList L)
-{
-    //循环打印整个链表
-    LNode *p = L->next; //扫描指针
-    int j = 0;
-    if (p == NULL)
-        printf("这是一个空表\n");
-    while (p != NULL)
-    {
-        printf("LinkList[%d]=%d\n", j, p->data);
-        p = p->next;
-        j++;
-    }
-}
-
-void TestModule()
-{
-    LinkList L;
-    TestPrint(InitList(L), "初始化");
-    PrintList(L);
-    TestPrint(ListInsert(L, 1, 3), "按位插入");
-    PrintList(L);
-    int e;
-    TestPrint(ListDelete(L, 1, e), "删除");
-    PrintList(L);
-    printf("被删除的数据是：%d\n", e);
-}
-
-/**测试模块**/
-
-int main()
-{
-    TestModule();
-    return 0;
 }

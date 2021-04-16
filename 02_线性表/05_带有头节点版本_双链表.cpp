@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**定义模块**/
-
 typedef struct DNode
 {
     int data;                   //数据域
@@ -18,9 +16,6 @@ bool DestroyList(DLinkList &L);          //销毁整个表
 bool PrintNextElems(DNode *p);           //从P点向后遍历
 bool PrintPriorElems(DNode *p);          //从P点向前遍历
 bool PrintPriorElemsOverHead(DNode *p);  //从P点向前遍历（跳过头节点）
-/**定义模块**/
-
-/**实现模块**/
 
 //初始化
 bool InitDLinkList(DLinkList &L)
@@ -115,31 +110,4 @@ bool PrintPriorElemsOverHead(DNode *p)
         p = p->prior;
     }
     return true;
-}
-
-/**实现模块**/
-
-/**测试模块**/
-
-//测试函数
-void TestPrint(bool test, char message[])
-{
-    if (test)
-        printf("%s成功啦！\n", message);
-    else
-        printf("%s失败啦！\n", message);
-}
-
-void TestModule()
-{
-    DLinkList L;
-    TestPrint(InitDLinkList(L), "初始化");
-}
-
-/**测试模块**/
-
-int main()
-{
-    TestModule();
-    return 0;
 }

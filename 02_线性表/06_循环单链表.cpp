@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**定义模块**/
-
 typedef struct LNode
 {
     int data;
@@ -12,10 +10,6 @@ typedef struct LNode
 //函数声明
 bool InitRLinkList(LinkList &L);   //初始化
 bool IsTail(LinkList L, LNode *p); //判断P是不是表尾指针
-
-/**定义模块**/
-
-/**实现模块**/
 
 //初始化一个循环单链表
 bool InitRLinkList(LinkList &L)
@@ -33,17 +27,6 @@ bool IsTail(LinkList L, LNode *p)
     return (p->next == L);
 }
 
-/**实现模块**/
-
-/**测试模块**/
-void TestModule()
-{
-}
-
-/**测试模块**/
-
-int main()
-{
-    TestModule();
-    return 0;
-}
+// 如何判空
+// 如何判断结点p是否是表尾/表头结点
+// 如何在表头、表中、表尾插入/删除一个结点

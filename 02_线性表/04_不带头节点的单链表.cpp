@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**定义模块**/
 typedef struct LNode
 {
     int data;
@@ -12,7 +11,7 @@ typedef struct LNode
 //    int data;
 //    struct LNode *next;
 //};
-//
+
 //typedef struct LNode LNode;
 //typedef struct LNode *LinkList;
 
@@ -20,10 +19,6 @@ typedef struct LNode
 bool InitList(LinkList &L);                 //初始化
 bool Empty(LinkList L);                     //判断是否为空
 bool ListInsert(LinkList &L, int i, int e); //插入
-
-/**定义模块**/
-
-/**实现模块**/
 
 //初始化
 bool InitList(LinkList &L)
@@ -37,13 +32,6 @@ bool Empty(LinkList L)
 {
     return (L == NULL);
 }
-//等价于
-//bool Empty1(LinkList L){
-//    if (L==NULL)
-//        return true;
-//    else
-//        return false;
-//}
 
 bool ListInsert(LinkList &L, int i, int e)
 {
@@ -75,49 +63,4 @@ bool ListInsert(LinkList &L, int i, int e)
     s->next = p->next;
     p->next = s;
     return true;
-}
-
-/**实现模块**/
-
-/**测试模块**/
-
-//Test
-void TestPrint(bool test, char about[])
-{
-    if (test)
-        printf("%s成功\n", about);
-    else
-        printf("%s失败\n", about);
-}
-
-void PrintList(LinkList L)
-{
-    //循环打印整个链表
-    LNode *p = L; //扫描指针
-    int j = 0;
-    if (p == NULL)
-        printf("这是一个空表\n");
-    while (p != NULL)
-    {
-        printf("LinkList[%d]=%d", j, p->data);
-        p = p->next;
-        j++;
-    }
-}
-
-void TestModule()
-{
-    LinkList L;
-    TestPrint(InitList(L), "初始化");
-    PrintList(L);
-    TestPrint(ListInsert(L, 1, 2), "按位插入");
-    PrintList(L);
-}
-
-/**测试模块**/
-
-int main()
-{
-    TestModule();
-    return 0;
 }
