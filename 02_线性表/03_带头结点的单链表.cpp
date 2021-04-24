@@ -9,7 +9,7 @@ typedef struct LNode
 
 //函数定义
 bool InitList(LinkList &L);                  //初始化
-bool Empty(LinkList L);                      //盘空
+bool Empty(LinkList L);                      //判空
 bool ListInsert(LinkList &L, int i, int e);  //按位插入
 bool InsertNextNode(LNode *p, int e);        //指定节点的后插操作
 bool InsertPriorNode(LNode *p, int e);       //指定节点的前插操作————先完成后插，再交换数据以实现前插
